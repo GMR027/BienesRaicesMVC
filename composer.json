@@ -1,0 +1,21 @@
+{
+    "name": "edgar/curso-bienesraices",
+    "description": "Proyecto con POO",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "controllers/",
+            "MVC\\": "./",
+            "Model\\": "models/"
+        }
+    },
+    "authors": [
+        {
+            "name": "edgar",
+            "email": "e.gm27@outlook.com"
+        }
+    ],
+    "require": {
+        "intervention/image": "^3.11"
+    }
+}
