@@ -1,15 +1,16 @@
 <?php 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
 
 if(!isset($_SESSION)) {
   session_start();
 }
-//var_dump($_SESSION);
+
 //Revisar en que navegador se encuetra logeado
 $ingreso = $_SESSION['login'] ?? false;
-// var_dump($ingreso);
+
+if(!isset($inicio)) {
+  $inicio = false;
+}
+
 
 ?>
 
@@ -18,7 +19,7 @@ $ingreso = $_SESSION['login'] ?? false;
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/build/css/app.css">
+  <link rel="stylesheet" href="../build/css/app.css">
   <title>Bienes Raices</title>
 </head>
 <body>
@@ -49,3 +50,20 @@ $ingreso = $_SESSION['login'] ?? false;
       <h1 class="<?php echo $inicio ? 'visible' : 'oculto' ?>">Venta de casas y depstos de lujo</h1>
     </div>
   </header>
+
+  <?php echo $contenido; ?>
+
+  <footer class="footer seccion">
+    <div class="contenedor contenido-footer">
+      <nav class="navegacion">
+        <a href="nosotros.php">Nosotros</a>
+        <a href="anuncios.php">Anuncios</a>
+        <a href="blog.php">Blog</a>
+        <a href="contacto.php">Contacto</a>
+      </nav>
+    </div>
+    <p class="copyright">Todos los derechos reservados <?php echo date('Y'); ?></p>
+  </footer>
+<script src="../build/js/bundle.min.js"></script>
+</body>
+</php>
