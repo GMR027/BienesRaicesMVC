@@ -14,10 +14,12 @@ class PropiedadControladora {
     $resultado = $_GET['resultado'] ?? null;
 
     $propiedades = Propiedad::all();
+    $vendedores = Vendedores::all();
     $router->render('/views/propiedades/admin.php', [
       //"mensaje" => 'Desde la vista de admin'
       'propiedades' => $propiedades,
-      'resultado' => $resultado
+      'resultado' => $resultado,
+      'vendedores' => $vendedores
     ]);
   }
 
@@ -128,9 +130,16 @@ class PropiedadControladora {
       $tipo = $_POST['tipo'];
       //debuguear($tipo);
       if(validarTipo($tipo)) {
-        //debuguear('Es valido');
-        $propiedad = Propiedad::find($idEliminar);
-        $propiedad->eliminar();
+          if($tipo === 'propiedad') {
+            //debuguear('Es valido');
+            $propiedad = Propiedad::find($idEliminar);
+            //debuguear($propiedad);
+            $propiedad->eliminar();
+          } else if($tipo === 'vendedor') {
+            $vendedor = Vendedores::find($idEliminar);
+            $vendedor->eliminar();
+            //debuguear($vendedor);
+          }
         }
       }
     }
