@@ -103,13 +103,13 @@ class PropiedadControladora {
       }
       
       if(empty($errores)){
-      //Almacenar imagen en DD
-      if($_FILES['propiedad']['tmp_name']['imagenCargada']) {
-            $imagenLeida->save(CARPETA_IMG . $nombreIMG);
-        }
-  
-        $propiedad->guardar();
-      } 
+        //Almacenar imagen en DD
+        if($_FILES['propiedad']['tmp_name']['imagenCargada']) {
+              $imagenLeida->save(CARPETA_IMG . $nombreIMG);
+          }
+    
+          $propiedad->guardar();
+        } 
     }
 
     $router->render('/views/propiedades/actualizar.php', [
@@ -135,10 +135,6 @@ class PropiedadControladora {
             $propiedad = Propiedad::find($idEliminar);
             //debuguear($propiedad);
             $propiedad->eliminar();
-          } else if($tipo === 'vendedor') {
-            $vendedor = Vendedores::find($idEliminar);
-            $vendedor->eliminar();
-            //debuguear($vendedor);
           }
         }
       }

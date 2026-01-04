@@ -1,18 +1,5 @@
-<?php 
-  use App\Propiedad;
- 
-  //debuguear($_SERVER);
-  //Limitar la visualizacion de anuncios en pagina anuncios e index
-  if($_SERVER['SCRIPT_NAME'] === '/anuncios.php') {
-    $propiedadades = Propiedad::all();
-  } else {
-    $propiedadades = Propiedad::mostrar(3);
-  }
-?>
-
-
 <div class="contenedor-anuncios">
-  <?php foreach($propiedadades as $propiedad) { ?>
+  <?php foreach($propiedades as $propiedad) { ?>
   <div class="anuncio">
     <img src="/imagenes/<?php echo $propiedad->imagen; ?>" alt="anuncio" loading="lazy">
     <div class="contenido-anuncio">
@@ -40,4 +27,3 @@
   </div><!--Anuncio-->
   <?php } ?>
 </div><!--Contenedor de anuncios-->
-

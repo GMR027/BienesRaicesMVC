@@ -17,7 +17,7 @@ class Router {
 
   public function ComprobarRutas () {
     //echo 'Desde funcion comprobar rutas';
-    $urlActual = $_SERVER['PATH_INFO']; //leer url valida
+    $urlActual = $_SERVER['REQUEST_URI']; //leer url valida
     $metodo = $_SERVER['REQUEST_METHOD'];
     
 
