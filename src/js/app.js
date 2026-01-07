@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
 function eventListeners() {
   const mobileMenu = document.querySelector('.mobile-menu');
   mobileMenu.addEventListener('click', menuresponsive);
+
+  ////Muestra de campos 
+  
 }
 
 function menuresponsive () {

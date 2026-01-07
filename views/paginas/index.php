@@ -13,14 +13,14 @@
   ?>
 
   <div class="alinear-derecha">
-    <a href="anuncios.php" class="boton-verde">Ver todas</a>
+    <a href="/propiedades" class="boton-verde">Ver todas</a>
   </div>
 </section>
 
 <section class="imagen-contacto">
   <h2 class="h2">Encuentra la casa de tus suenos</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nemo, sit delectus fuga quae beatae nesciunt quibusdam consequuntur ut molestiae expedita odio nobis autem eum illo, ea doloremque modi dolore?</p>
-  <a href="contacto.php" class="boton-amarillo-corto">Contactanos</a>
+  <a href="/contacto" class="boton-amarillo-corto">Contactanos</a>
 </section>
 
 <div class="contenedor seccion seccion-inferior">
@@ -37,7 +37,7 @@
       </div>
 
       <div class="texto-entrada">
-        <a href="/entrada.php">
+        <a href="/blog">
           <h4>Terraza en el techo de tu casa</h4>
           <p class="info-meta">Escrito el: <span>20/10/2025</span> por: <span>Admin</span> </p>
           <p>Consejos para construir una terraza en el techo de tu casa</p>
@@ -55,7 +55,7 @@
       </div>
 
       <div class="texto-entrada">
-        <a href="/entrada.php">
+        <a href="/blog">
           <h4>Guia para la decoracion de tu hogar</h4>
           <p class="info-meta">Escrito el: <span>23/10/2025</span> por: <span>Admin</span> </p>
           <p>Consejos para decorar tu casa con estillo</p>
