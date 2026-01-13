@@ -6,6 +6,13 @@
     <img src="/build/img/destacada3.jpg" alt="contacto" loading="lazy">
   </picture>
 
+  <?php 
+    if($mensaje) { ?>
+      <p class='alerta exito'><?php echo $mensaje?></p>
+    <?php }
+  ?>
+  
+
   <h2>Llene el formulario de contacto</h2>
   <form action="/contacto" class="formulario" method="POST">
     <fieldset>
@@ -14,11 +21,6 @@
       <label for="nombre">Nombre</label>
       <input type="text" placeholder="Nombre" id="nombre" name="contacto[nombre]" required>
 
-      <label for="mail">E-mail</label>
-      <input type="email" placeholder="Tu e-mail" id="mail" name="contacto[email]" required>
-
-      <label for="telefono">Telefono</label>
-      <input type="tel" placeholder="Tu telefono" id="telefono"  name="contacto[telefono]">
 
       <label for="mensaje">Mensaje</label>
       <textarea id="mensaje" placeholder="Tu mensaje"  name="contacto[mensaje]" required></textarea>
@@ -49,13 +51,9 @@
         <input type="radio" value="email" id="contactar-email"  name="contacto[contacto]" required>
       </div>
 
-      <p>Si eligio el telefono, elija la fecha y la hora</p>
+      <div id="contacto"></div>
 
-      <label for="fecha">Fecha</label>
-      <input type="date" placeholder="Fecha" id="fecha"  name="contacto[fecha]">
-
-      <label for="hora">Hora</label>
-      <input type="time" placeholder="hora" id="hora" min="09:00" max="18:00"  name="contacto[hora]">
+      
     </fieldset> <!--Informacion de contacto fecha y hora-->
 
     <input type="submit" value="Enviar" class="boton-verde">

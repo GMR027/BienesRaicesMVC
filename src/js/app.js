@@ -13,7 +13,11 @@ function eventListeners() {
   mobileMenu.addEventListener('click', menuresponsive);
 
   ////Muestra de campos 
-  
+  const metodoContacto = document.querySelectorAll('input[name="contacto[contacto]"]');
+  //console.log(metodoContacto);
+  metodoContacto.forEach(input => input.addEventListener('click', mostrarMetodosDeContacto));
+
+
 }
 
 function menuresponsive () {
@@ -61,5 +65,35 @@ function darkMode () {
       document.body.classList.toggle('dark-mode');
       console.log('Click en icono darkmode')
   });
+}
+
+function mostrarMetodosDeContacto (event) {
+  //console.log('Seleccionando modo');
+  const contactoDiv = document.querySelector('#contacto');
+  //contactoDiv.textContent = 'Diste Click'; //comprobacion de comunicacion
+  //console.log(event);
+
+
+  if(event.target.value === 'telefono') {
+    //console.log('Selecciono telefono');
+    contactoDiv.innerHTML = `
+      <label for="telefono">Num tel:</label>
+      <input type="tel" placeholder="Tu telefono" id="telefono"  name="contacto[telefono]">
+
+      <p>Elija la fecha y la hora</p>
+
+      <label for="fecha">Fecha</label>
+      <input type="date" placeholder="Fecha" id="fecha"  name="contacto[fecha]">
+
+      <label for="hora">Hora</label>
+      <input type="time" placeholder="hora" id="hora" min="09:00" max="18:00"  name="contacto[hora]">
+    `;
+  } else if(event.target.value === 'email') {
+    //console.log('Selecciono el modo email');
+    contactoDiv.innerHTML = `
+    <label for="mail">E-mail</label>
+    <input type="email" placeholder="Tu e-mail" id="mail" name="contacto[email]"a>
+    `;
+  }
 }
 
