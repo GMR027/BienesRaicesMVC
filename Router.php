@@ -16,6 +16,24 @@ class Router {
   }
 
   public function ComprobarRutas () {
+    session_start();
+    //debuguear($_SESSION);
+    $ingreso = $_SESSION['login'] ?? null;
+    //debuguear($ingreso);
+
+
+    //Arreglo de rutas protegidas
+    $rutasProtegidas = [
+      '/admin',
+      '/propiedades/crear',
+      '/propiedades/actualizar',
+      '/propiedades/eliminar',
+      'vendedores/crear',
+      'vendedores/actualizar',
+      'vendedores/eliminar'
+    ];
+
+
     //echo 'Desde funcion comprobar rutas';
     $urlActual = $_SERVER['PATH_INFO'] ?? '/'; //leer url valida
     $metodo = $_SERVER['REQUEST_METHOD'];
@@ -30,6 +48,12 @@ class Router {
     } else if ($metodo === 'POST') {
       //debuguear($this);
       $funcion = $this->rutasPost[$urlActual] ?? null;
+    }
+
+    //Proteger las rutas
+    if(in_array($urlActual, $rutasProtegidas) && !$ingreso){
+      //echo 'Ruta protegida';
+      header('location: /');
     }
 
     if($funcion) {

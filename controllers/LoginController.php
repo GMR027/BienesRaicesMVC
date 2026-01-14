@@ -27,7 +27,8 @@ class LoginController {
 
           if($autenticado) {
           //Autenticar usuario
-            echo 'Ingreso correcto';
+            //echo 'Ingreso correcto';
+            $auth->autenticar();
           } else {
             $errores = Admin::getErrores();
           }
@@ -43,5 +44,9 @@ class LoginController {
 
   public static function logout () {
     echo 'desde logout';
+    session_start();
+    //debuguear($_SESSION);
+    $_SESSION = [];
+    header('location: /');
   }
 }
