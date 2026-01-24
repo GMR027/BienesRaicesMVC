@@ -7,6 +7,12 @@ use Model\Vendedores;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 
+//ver informacion de datos de subida de archivos mediante el servidor apache2 
+// echo "upload_max_filesize: " . ini_get('upload_max_filesize') . "<br>";
+// echo "post_max_size: " . ini_get('post_max_size') . "<br>";
+// echo "memory_limit: " . ini_get('memory_limit') . "<br>";
+
+
 class PropiedadControladora {
   public static  function index(Router $router) { //los que esta en parentesis es para mantener la referencia de index.php, pasar el mismo objeto
     //echo 'Index asi super wow';
@@ -38,14 +44,16 @@ class PropiedadControladora {
     //generar nombre para imagenes
       $nombreIMG = md5(uniqid( rand(), true )) . '.jpg';
 
-    if($_FILES['propiedad']['tmp_name']['imagenCargada']) {
+    if($_FILES['propiedad']['tmp_name']['imagen']) {
       $manager = new ImageManager(Driver::class);
-      $imagen = $manager->read($_FILES['propiedad']['tmp_name']['imagenCargada'])->cover(800, 600);
+      $imagen = $manager->read($_FILES['propiedad']['tmp_name']['imagen'])->cover(800, 600);
       $propiedad->setImage($nombreIMG);
       //debuguear($imagen);
     }
 
     //debuguear(CARPETA_IMG);
+
+    //debuguear($_FILES);
 
     $errores = $propiedad->validarErrores();
 

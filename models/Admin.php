@@ -6,24 +6,24 @@ namespace Model;
 class Admin extends ActiveRecord {
   //Base de datos
   protected static $tabla = 'usuarios';
-  protected static $colDB = ['id', 'email', 'pasword'];
+  protected static $colDB = ['id', 'email', 'constrasena'];
 
   public $id;
   public $email;
-  public $pasword;
+  public $constrasena;
 
   public function __construct($args = [])
   {
     $this->id =$args['id'] ?? null;
     $this->email =$args['email'] ?? '';
-    $this->pasword =$args['pasword'] ?? '';
+    $this->constrasena =$args['constrasena'] ?? '';
   }
 
   public function validar () {
     if(!$this->email) {
       self::$errores[] = 'El email es obligatorio';
     }
-    if(!$this->pasword) {
+    if(!$this->constrasena) {
       self::$errores[] = 'La contrasena es obligatoria';
     }
 
@@ -48,7 +48,9 @@ class Admin extends ActiveRecord {
     $usuario = $ingreso->fetch_object();
     //debuguear($usuario);
 
-    $autenticado = password_verify($this->pasword, $usuario->pasword);
+    $autenticado = password_verify($this->constrasena, $usuario->constrasena);
+    //debuguear($autenticado);
+
 
     if(!$autenticado) {
       self::$errores[] = 'Contrasena incorrecta';
@@ -65,5 +67,6 @@ class Admin extends ActiveRecord {
     $_SESSION['login'] = true;
 
     header('Location: /admin');
+    exit;
   }
 }

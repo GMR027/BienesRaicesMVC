@@ -14,7 +14,7 @@
       <input type="email" placeholder="Tu e-mail" id="email" name="email">
 
       <label for="password">Password</label>
-      <input type="password" placeholder="*****" id="password" name="pasword">
+      <input type="password" placeholder="*****" id="contrasena" name="constrasena">
 
     </fielset>
     <input type="submit" value="Iniciar Sesion"  class="boton-verde">

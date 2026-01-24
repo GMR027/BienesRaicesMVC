@@ -6,7 +6,7 @@
         <?php echo $error ?>
       </div>
     <?php endforeach; ?>
-  <form class="formulario" method="POST" enctype="multipart/form-data">
+  <form class="formulario" method="POST" enctype="multipart/form-data" action="/propiedades/crear">
     <?php include __DIR__  . '/formulario.php'; ?>
     <input type="submit" value="Crear propiedad" class="boton boton-verde">
   </form>

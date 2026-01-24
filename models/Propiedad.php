@@ -21,7 +21,7 @@ class Propiedad extends ActiveRecord  {
   {
     $this->id = $arreglo['id'] ?? null;
     $this->titulo = $arreglo['titulo'] ?? '';
-    $this->imagen = $arreglo['imagenCargada'] ?? '';
+    $this->imagen = $arreglo['imagen'] ?? '';
     $this->precio = $arreglo['precio'] ?? '';
     $this->descripcion = $arreglo['descripcion'] ?? '';
     $this->habitaciones = $arreglo['habitaciones'] ?? '';

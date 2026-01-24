@@ -18,6 +18,7 @@ $router->post('/propiedades/crear', [PropiedadControladora::class, 'crear']);
 $router->get('/propiedades/actualizar', [PropiedadControladora::class, 'actualizar']);
 $router->post('/propiedades/actualizar', [PropiedadControladora::class, 'actualizar']);
 $router->post('/propiedades/eliminar', [PropiedadControladora::class, 'eliminar']);
+$router->get('/usuario', [LoginController::class, 'usuario']);
 
 
 $router->get('/vendedores/crear', [VendedorController::class, 'crear']);

@@ -10,9 +10,12 @@ class LoginController {
     $errores = [];
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+      
       //echo 'Probando.....';
       //debuguear($_POST);
       $auth = new Admin($_POST);
+      //debuguear($auth);
       $errores = $auth->validar();
 
       if(empty($errores)) {
@@ -48,5 +51,12 @@ class LoginController {
     //debuguear($_SESSION);
     $_SESSION = [];
     header('location: /');
+    
+  }
+
+  public static function usuario (Router $router) {
+    echo 'Desde usuario';
+
+    $router->render('/views/usuario.php');
   }
 }

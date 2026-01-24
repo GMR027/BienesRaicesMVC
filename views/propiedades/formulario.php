@@ -8,7 +8,7 @@
   <input type="number" name="propiedad[precio]"  id="precio" placeholder="Precio" value="<?php echo limpiar($propiedad->precio); ?>">
 
   <label for="imagen">Imagen:</label>
-  <input type="file" name="propiedad[imagenCargada]" id="imagen" accept="image/jpeg, image/png" value="<?php echo limpiar($propiedad->imagen); ?>">
+  <input type="file" name="propiedad[imagen]" id="imagen" accept="image/jpeg, image/png" value="<?php echo limpiar($propiedad->imagen); ?>">
 
   <?php if($propiedad->imagen): ?>
     <img class="imgForm" src="/imagenes/<?php echo $propiedad->imagen; ?>" alt="imagen formulario">
