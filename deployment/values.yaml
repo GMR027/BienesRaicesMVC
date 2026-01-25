@@ -1,0 +1,35 @@
+replicaCount: 3
+volumeMountPath: 'shared-volume'
+
+config:
+  DB_HOST: mysql.edgar.svc.cluster.local
+  DB_NAME: bienes-raices-crud
+  DB_USER: root
+  DB_PASSWORD: bienes-raices-crud
+
+image:
+  registry: christopherguzman
+  repository: bienes-raices-crud
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  externalPort: 80
+  internalPort: 80
+
+ingress:
+  enabled: true
+  host: bienes-raices.iguzman.com.mx
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+deployment:
+  nodeSelector:
+    nodeProjects: 'real-clients'
