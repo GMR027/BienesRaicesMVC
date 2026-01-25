@@ -1,7 +1,17 @@
 <?php
 
 function conectarBD() : mysqli {
-  $baseDatos = new mysqli ('localhost', 'root', '2705', 'bienesRaices');
+  $host = $_ENV['ENV'] ?? 'localhost';
+  if ($host == 'production') {
+    $baseDatos = new mysqli (
+      $_ENV['DB_HOST'],
+      $_ENV['DB_USER'],
+      $_ENV['DB_PASSWORD'],
+      $_ENV['DB_NAME']
+    );
+  } else {
+    $baseDatos = new mysqli ('localhost', 'root', '2705', 'bienesRaices');
+  }
   $baseDatos->set_charset("utf8"); //Indicador para que muestre los acentos y las N
 
   //Forma para validar conexion
